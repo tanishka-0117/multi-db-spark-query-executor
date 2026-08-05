@@ -1,0 +1,11 @@
+postgres_hr:
+  url: jdbc:postgresql://localhost:5432/hr
+  user: postgres
+  password: Postgres@123
+  driver: org.postgresql.Driver
+
+mysql_org:
+  url: jdbc:mysql://localhost:3306/org
+  user: root
+  password: shubh@0305
+  driver: com.mysql.cj.jdbc.Driver

@@ -1,0 +1,26 @@
+{
+  "mysql_student": {
+    "url": "jdbc:mysql://localhost:3306/student",
+    "user": "root",
+    "password": "shubh@0305",
+    "driver": "com.mysql.cj.jdbc.Driver"
+  },
+
+  "postgres_hr": {
+    "url": "jdbc:postgresql://localhost:5432/hr",
+    "user": "postgres",
+    "password": "Postgres@123",
+    "driver": "org.postgresql.Driver",
+    "partitionColumn": "id",
+    "lowerBound": 1,
+    "upperBound": 100000,
+    "numPartitions": 4
+  },
+
+  "mysql_company": {
+    "url": "jdbc:mysql://localhost:3306/company",
+    "user": "root",
+    "password": "shubh@0305",
+    "driver": "com.mysql.cj.jdbc.Driver"
+  }
+}

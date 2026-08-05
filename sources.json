@@ -1,0 +1,7 @@
+{
+  "employees": {
+    "type": "csv",
+    "path": "C:/Users/asus/Documents/spark-projects/multi-db-executor/data/employees.csv",
+    "header": true
+  }
+}
