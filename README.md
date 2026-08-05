@@ -106,3 +106,11 @@ Apache Spark, PySpark, JDBC, MySQL, PostgreSQL, Parquet, Git, GitHub
 
 
 
+
+
+\## Spark Execution Screenshot
+
+
+
+!\[Spark Run](docs/spark-run.png)
+
