@@ -1,15 +1,15 @@
 {
   "mysql_student": {
     "url": "jdbc:mysql://localhost:3306/student",
-    "user": "YOUR_MYSQL_USER",
-    "password": "YOUR_MYSQL_PASSWORD",
+    "user": "root",
+    "password": "NewStrongPassword123!",
     "driver": "com.mysql.cj.jdbc.Driver"
   },
 
   "postgres_hr": {
     "url": "jdbc:postgresql://localhost:5432/hr",
-    "user": "YOUR_POSTGRES_USER",
-    "password": "YOUR_POSTGRES_PASSWORD",
+    "user": "postgres",
+    "password": "Postgres@123",
     "driver": "org.postgresql.Driver",
     "partitionColumn": "id",
     "lowerBound": 1,
@@ -19,8 +19,8 @@
 
   "mysql_company": {
     "url": "jdbc:mysql://localhost:3306/company",
-    "user": "YOUR_MYSQL_USER",
-    "password": "YOUR_MYSQL_PASSWORD",
+    "user": "root",
+    "password": "NewStrongPassword123!",
     "driver": "com.mysql.cj.jdbc.Driver"
   }
 }

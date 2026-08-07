@@ -11,7 +11,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ---------------- Validate arguments ----------------
+# ---------------- Validate Arguments ----------------
 if len(sys.argv) != 3:
     print("Usage: spark-submit src/executor.py <db_name> <table_name>")
     sys.exit(1)
@@ -22,9 +22,12 @@ table_name = sys.argv[2]
 # ---------------- Spark Session ----------------
 spark = (
     SparkSession.builder
-    .appName("MultiDBExecutor")
+    .appName(f"MultiDBExecutor-{db_name}")
     .master("local[*]")
-    .config("spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version", "2")
+    .config(
+        "spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version",
+        "2"
+    )
     .config(
         "spark.sql.sources.commitProtocolClass",
         "org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol"
@@ -33,7 +36,10 @@ spark = (
         "spark.sql.parquet.output.committer.class",
         "org.apache.parquet.hadoop.ParquetOutputCommitter"
     )
-    .config("spark.hadoop.fs.file.impl", "org.apache.hadoop.fs.RawLocalFileSystem")
+    .config(
+        "spark.hadoop.fs.file.impl",
+        "org.apache.hadoop.fs.RawLocalFileSystem"
+    )
     .config(
         "spark.sql.warehouse.dir",
         "file:///C:/spark-projects/multi-db-executor/spark-warehouse"
@@ -42,49 +48,58 @@ spark = (
 )
 
 try:
-    # ---------------- Load DB Config ----------------
+    # ---------------- Load Database Config ----------------
     with open("config/databases.json", "r") as f:
-        dbs = json.load(f)
+        databases = json.load(f)
 
-    if db_name not in dbs:
+    if db_name not in databases:
         raise ValueError(
             f"Database '{db_name}' not found in config/databases.json"
         )
 
-    logger.info(
-        f"Reading table '{table_name}' from database '{db_name}'"
-    )
+    db_config = databases[db_name]
 
-    # ---------------- Read Data ----------------
+    logger.info(f"Database Config: {db_config}")
+    logger.info(f"Reading table '{table_name}' from '{db_name}'")
+
+    # ---------------- Read Table ----------------
     reader = JDBCReader(spark)
-    df = reader.read_table(dbs[db_name], table_name)
+    df = reader.read_table(db_config, table_name)
 
-    # ---------------- Parallelism Info ----------------
-    logger.info(f"Spark partitions: {df.rdd.getNumPartitions()}")
+    logger.info(f"Spark Partitions: {df.rdd.getNumPartitions()}")
 
-    count = df.count()
-    logger.info(f"Row count: {count}")
+    row_count = df.count()
+    logger.info(f"Row Count: {row_count}")
 
     df.show(truncate=False)
 
-    # ---------------- Write Parquet ----------------
+    # ---------------- Output Path ----------------
     output_path = (
         f"file:///C:/spark-projects/multi-db-executor/output/"
         f"{db_name}/{table_name}"
     )
 
-    (
+    logger.info(f"Writing Parquet to: {output_path}")
+
+    writer = (
         df.write
         .mode("overwrite")
-        .parquet(output_path)
+        .option("compression", "snappy")
     )
 
-    logger.info(f"Parquet written successfully to: {output_path}")
+    # Partition only if the column exists
+    if "department" in df.columns:
+        writer = writer.partitionBy("department")
+        logger.info("Partitioning by department")
+
+    writer.parquet(output_path)
+
+    logger.info("Parquet written successfully.")
 
 except Exception as e:
-    logger.exception(f"Job failed: {e}")
+    logger.exception(f"Job Failed: {e}")
     sys.exit(1)
 
 finally:
     spark.stop()
-    logger.info("Spark session stopped")
+    logger.info("Spark Session Stopped")

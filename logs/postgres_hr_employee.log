@@ -1,0 +1,321 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/08/07 19:04:37 INFO SparkContext: Running Spark version 4.2.0
+26/08/07 19:04:37 INFO SparkContext: OS info Windows 11, 10.0, amd64
+26/08/07 19:04:37 INFO SparkContext: Java version 22+36-2370
+26/08/07 19:04:37 INFO ResourceUtils: ==============================================================
+26/08/07 19:04:37 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/08/07 19:04:37 INFO ResourceUtils: ==============================================================
+26/08/07 19:04:37 INFO SparkContext: Submitted application: MultiDBExecutor-postgres_hr
+26/08/07 19:04:37 INFO SecurityManager: Changing view acls to: asus
+26/08/07 19:04:37 INFO SecurityManager: Changing modify acls to: asus
+26/08/07 19:04:37 INFO SecurityManager: Changing view acls groups to: asus
+26/08/07 19:04:37 INFO SecurityManager: Changing modify acls groups to: asus
+26/08/07 19:04:37 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: asus groups with view permissions: EMPTY; users with modify permissions: asus; groups with modify permissions: EMPTY; RPC SSL disabled
+26/08/07 19:04:38 INFO Utils: Successfully started service 'sparkDriver' on port 49772.
+26/08/07 19:04:38 INFO SparkEnv: Registering MapOutputTracker
+26/08/07 19:04:38 INFO SparkEnv: Registering BlockManagerMaster
+26/08/07 19:04:38 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/08/07 19:04:38 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/08/07 19:04:38 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/08/07 19:04:38 INFO DiskBlockManager: Created local directory at C:\Users\asus\AppData\Local\Temp\blockmgr-f7290b74-bdb8-4d7e-89be-2814dfb9b6dc
+26/08/07 19:04:38 INFO SparkEnv: Registering OutputCommitCoordinator
+26/08/07 19:04:39 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/08/07 19:04:39 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+26/08/07 19:04:39 INFO Utils: Successfully started service 'SparkUI' on port 4041.
+26/08/07 19:04:39 INFO SparkContext: Added JAR file:///C:/spark-projects/multi-db-executor/jars/mysql-connector-j-9.7.0.jar at spark://Tanishka3212:49772/jars/mysql-connector-j-9.7.0.jar with timestamp 1786109677209
+26/08/07 19:04:39 INFO SparkContext: Added JAR file:///C:/spark-projects/multi-db-executor/jars/postgresql-42.7.7.jar at spark://Tanishka3212:49772/jars/postgresql-42.7.7.jar with timestamp 1786109677209
+26/08/07 19:04:39 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/08/07 19:04:39 INFO ResourceProfile: Limiting resource is cpu
+26/08/07 19:04:39 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/08/07 19:04:39 INFO SecurityManager: Changing view acls to: asus
+26/08/07 19:04:39 INFO SecurityManager: Changing modify acls to: asus
+26/08/07 19:04:39 INFO SecurityManager: Changing view acls groups to: asus
+26/08/07 19:04:39 INFO SecurityManager: Changing modify acls groups to: asus
+26/08/07 19:04:39 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: asus groups with view permissions: EMPTY; users with modify permissions: asus; groups with modify permissions: EMPTY; RPC SSL disabled
+26/08/07 19:04:40 INFO Executor: Starting executor ID driver on host Tanishka3212
+26/08/07 19:04:40 INFO Executor: Running Spark version 4.2.0
+26/08/07 19:04:40 INFO Executor: OS info Windows 11, 10.0, amd64
+26/08/07 19:04:40 INFO Executor: Java version 22+36-2370
+26/08/07 19:04:40 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/08/07 19:04:40 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@7f56e00e for default.
+26/08/07 19:04:40 INFO Executor: Fetching spark://Tanishka3212:49772/jars/postgresql-42.7.7.jar with timestamp 1786109677209
+26/08/07 19:04:40 INFO TransportClientFactory: Successfully created connection to Tanishka3212/192.168.0.109:49772 after 40 ms (0 ms spent in bootstraps)
+26/08/07 19:04:40 INFO Utils: Fetching spark://Tanishka3212:49772/jars/postgresql-42.7.7.jar to C:\Users\asus\AppData\Local\Temp\spark-98416988-cd57-4167-85c1-ff111472c7b5\userFiles-24532923-afbd-4db5-906e-8bf88c4df10a\fetchFileTemp3512764862897123576.tmp
+26/08/07 19:04:40 INFO Executor: Adding file:/C:/Users/asus/AppData/Local/Temp/spark-98416988-cd57-4167-85c1-ff111472c7b5/userFiles-24532923-afbd-4db5-906e-8bf88c4df10a/postgresql-42.7.7.jar to class loader default
+26/08/07 19:04:40 INFO Executor: Fetching spark://Tanishka3212:49772/jars/mysql-connector-j-9.7.0.jar with timestamp 1786109677209
+26/08/07 19:04:40 INFO Utils: Fetching spark://Tanishka3212:49772/jars/mysql-connector-j-9.7.0.jar to C:\Users\asus\AppData\Local\Temp\spark-98416988-cd57-4167-85c1-ff111472c7b5\userFiles-24532923-afbd-4db5-906e-8bf88c4df10a\fetchFileTemp1702588517904112205.tmp
+26/08/07 19:04:40 INFO Executor: Adding file:/C:/Users/asus/AppData/Local/Temp/spark-98416988-cd57-4167-85c1-ff111472c7b5/userFiles-24532923-afbd-4db5-906e-8bf88c4df10a/mysql-connector-j-9.7.0.jar to class loader default
+26/08/07 19:04:40 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 49783.
+26/08/07 19:04:40 INFO NettyBlockTransferService: Server created on Tanishka3212:49783
+26/08/07 19:04:40 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/08/07 19:04:40 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, Tanishka3212, 49783, None)
+26/08/07 19:04:40 INFO BlockManagerMasterEndpoint: Registering block manager Tanishka3212:49783 with 434.4 MiB RAM, BlockManagerId(driver, Tanishka3212, 49783, None)
+26/08/07 19:04:40 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, Tanishka3212, 49783, None)
+26/08/07 19:04:40 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, Tanishka3212, 49783, None)
+2026-08-07 19:04:45,956 INFO Database Config: {'url': 'jdbc:postgresql://localhost:5432/hr', 'user': 'postgres', 'password': 'Postgres@123', 'driver': 'org.postgresql.Driver', 'partitionColumn': 'id', 'lowerBound': 1, 'upperBound': 100000, 'numPartitions': 4}
+2026-08-07 19:04:45,957 INFO Reading table 'employee' from 'postgres_hr'
+26/08/07 19:04:45 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+26/08/07 19:04:45 INFO SharedState: Warehouse path is 'file:/C:/spark-projects/multi-db-executor/spark-warehouse'.
+26/08/07 19:04:47 INFO JDBCRDD: Generated JDBC query to get scan output schema: SELECT * FROM employee WHERE 1=0
+26/08/07 19:04:50 INFO JDBCDatabaseMetadata: closed connection during metadata fetch
+26/08/07 19:04:51 INFO CodeGenerator: Code generated in 569.3878 ms
+2026-08-07 19:04:52,133 INFO Spark Partitions: 1
+26/08/07 19:04:52 INFO JDBCDatabaseMetadata: closed connection during metadata fetch
+26/08/07 19:04:52 INFO CodeGenerator: Code generated in 22.1172 ms
+26/08/07 19:04:52 INFO DAGScheduler: Registering RDD 7 ($anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768) as input to shuffle 0
+26/08/07 19:04:52 INFO DAGScheduler: Got map stage job 0 ($anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768) with 1 output partitions
+26/08/07 19:04:52 INFO DAGScheduler: Final stage: ShuffleMapStage 0 ($anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768)
+26/08/07 19:04:52 INFO DAGScheduler: Parents of final stage: List()
+26/08/07 19:04:52 INFO DAGScheduler: Missing parents: List()
+26/08/07 19:04:52 INFO DAGScheduler: Missing parents found for ShuffleMapStage 0: List()
+26/08/07 19:04:52 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[7] at $anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768), which has no missing parents
+26/08/07 19:04:53 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/08/07 19:04:53 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 17.5 KiB, free 434.4 MiB)
+26/08/07 19:04:53 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 9.1 KiB, free 434.4 MiB)
+26/08/07 19:04:53 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1760
+26/08/07 19:04:53 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[7] at $anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+26/08/07 19:04:53 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+26/08/07 19:04:53 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (Tanishka3212,executor driver, partition 0, PROCESS_LOCAL, 9896 bytes) 
+26/08/07 19:04:53 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+26/08/07 19:04:53 INFO PostgresDialect: No fetchSize option set for PostgreSQL JDBC read. Defaulting to 1000 to avoid loading all rows into memory. Set the 'fetchsize' option explicitly to override this behavior.
+26/08/07 19:04:53 INFO JDBCRDD: Generated JDBC query to fetch data: SELECT 1 FROM employee      
+26/08/07 19:04:53 INFO PostgresDialect: No fetchSize option set for PostgreSQL JDBC read. Defaulting to 1000 to avoid loading all rows into memory. Set the 'fetchsize' option explicitly to override this behavior.
+26/08/07 19:04:53 INFO CodeGenerator: Code generated in 31.9689 ms
+26/08/07 19:04:53 INFO SecurityManager: Changing view acls to: asus
+26/08/07 19:04:53 INFO SecurityManager: Changing modify acls to: asus
+26/08/07 19:04:53 INFO SecurityManager: Changing view acls groups to: asus
+26/08/07 19:04:53 INFO SecurityManager: Changing modify acls groups to: asus
+26/08/07 19:04:53 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: asus groups with view permissions: EMPTY; users with modify permissions: asus; groups with modify permissions: EMPTY; RPC SSL disabled
+26/08/07 19:04:53 INFO JDBCRDD: closed connection
+26/08/07 19:04:53 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2217 bytes result sent to driver
+26/08/07 19:04:53 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 471 ms on Tanishka3212 (executor driver) (1/1)
+26/08/07 19:04:53 INFO TaskSchedulerImpl: Removed TaskSet 0.0 whose tasks have all completed, from pool 
+26/08/07 19:04:53 INFO DAGScheduler: ShuffleMapStage 0 ($anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768) finished in 735 ms
+26/08/07 19:04:53 INFO DAGScheduler: looking for newly runnable stages
+26/08/07 19:04:53 INFO DAGScheduler: running: HashSet()
+26/08/07 19:04:53 INFO DAGScheduler: waiting: HashSet()
+26/08/07 19:04:53 INFO DAGScheduler: failed: HashSet()
+26/08/07 19:04:53 INFO CodeGenerator: Code generated in 20.4492 ms
+26/08/07 19:04:53 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768
+26/08/07 19:04:53 INFO DAGScheduler: Got job 1 ($anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768) with 1 output partitions
+26/08/07 19:04:53 INFO DAGScheduler: Final stage: ResultStage 2 ($anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768)
+26/08/07 19:04:53 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+26/08/07 19:04:53 INFO DAGScheduler: Missing parents: List()
+26/08/07 19:04:53 INFO DAGScheduler: Missing parents found for ResultStage 2: List()
+26/08/07 19:04:53 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[10] at $anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768), which has no missing parents
+26/08/07 19:04:53 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 14.1 KiB, free 434.4 MiB)
+26/08/07 19:04:53 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 6.8 KiB, free 434.4 MiB)
+26/08/07 19:04:53 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1760
+26/08/07 19:04:53 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[10] at $anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+26/08/07 19:04:53 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+26/08/07 19:04:53 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 1) (Tanishka3212,executor driver, partition 0, NODE_LOCAL, 10061 bytes) 
+26/08/07 19:04:53 INFO Executor: Running task 0.0 in stage 2.0 (TID 1)
+26/08/07 19:04:53 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/08/07 19:04:53 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 19 ms
+26/08/07 19:04:53 INFO CodeGenerator: Code generated in 24.1154 ms
+26/08/07 19:04:53 INFO Executor: Finished task 0.0 in stage 2.0 (TID 1). 3938 bytes result sent to driver
+26/08/07 19:04:53 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 1) in 139 ms on Tanishka3212 (executor driver) (1/1)
+26/08/07 19:04:53 INFO TaskSchedulerImpl: Removed TaskSet 2.0 whose tasks have all completed, from pool 
+26/08/07 19:04:53 INFO DAGScheduler: ResultStage 2 ($anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768) finished in 158 ms
+26/08/07 19:04:54 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/08/07 19:04:54 INFO TaskSchedulerImpl: Canceling stage 2
+26/08/07 19:04:54 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+26/08/07 19:04:54 INFO DAGScheduler: Job 1 finished: $anonfun$withThreadLocalCaptured$1 at CompletableFuture.java:1768, took 181.9741 ms
+26/08/07 19:04:54 INFO DAGScheduler: Asked to cleanup jobs for query execution 0
+2026-08-07 19:04:54,024 INFO Row Count: 2
+26/08/07 19:04:54 INFO JDBCDatabaseMetadata: closed connection during metadata fetch
+26/08/07 19:04:54 INFO CodeGenerator: Code generated in 29.6801 ms
+26/08/07 19:04:54 INFO SparkContext: Starting job: showString at DirectMethodHandleAccessor.java:103
+26/08/07 19:04:54 INFO DAGScheduler: Got job 2 (showString at DirectMethodHandleAccessor.java:103) with 1 output partitions
+26/08/07 19:04:54 INFO DAGScheduler: Final stage: ResultStage 3 (showString at DirectMethodHandleAccessor.java:103)
+26/08/07 19:04:54 INFO DAGScheduler: Parents of final stage: List()
+26/08/07 19:04:54 INFO DAGScheduler: Missing parents: List()
+26/08/07 19:04:54 INFO DAGScheduler: Missing parents found for ResultStage 3: List()
+26/08/07 19:04:54 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[13] at showString at DirectMethodHandleAccessor.java:103), which has no missing parents
+26/08/07 19:04:54 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 15.4 KiB, free 434.3 MiB)
+26/08/07 19:04:54 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 7.7 KiB, free 434.3 MiB)
+26/08/07 19:04:54 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1760
+26/08/07 19:04:54 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[13] at showString at DirectMethodHandleAccessor.java:103) (first 15 tasks are for partitions Vector(0))
+26/08/07 19:04:54 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks resource profile 0
+26/08/07 19:04:54 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 2) (Tanishka3212,executor driver, partition 0, PROCESS_LOCAL, 9907 bytes) 
+26/08/07 19:04:54 INFO Executor: Running task 0.0 in stage 3.0 (TID 2)
+26/08/07 19:04:54 INFO PostgresDialect: No fetchSize option set for PostgreSQL JDBC read. Defaulting to 1000 to avoid loading all rows into memory. Set the 'fetchsize' option explicitly to override this behavior.
+26/08/07 19:04:54 INFO JDBCRDD: Generated JDBC query to fetch data: SELECT "id","name","department","salary" FROM employee      
+26/08/07 19:04:54 INFO PostgresDialect: No fetchSize option set for PostgreSQL JDBC read. Defaulting to 1000 to avoid loading all rows into memory. Set the 'fetchsize' option explicitly to override this behavior.
+26/08/07 19:04:54 INFO CodeGenerator: Code generated in 23.3111 ms
+26/08/07 19:04:54 INFO JDBCRDD: closed connection
+26/08/07 19:04:54 INFO Executor: Finished task 0.0 in stage 3.0 (TID 2). 1894 bytes result sent to driver
+26/08/07 19:04:54 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 2) in 125 ms on Tanishka3212 (executor driver) (1/1)
+26/08/07 19:04:54 INFO TaskSchedulerImpl: Removed TaskSet 3.0 whose tasks have all completed, from pool 
+26/08/07 19:04:54 INFO DAGScheduler: ResultStage 3 (showString at DirectMethodHandleAccessor.java:103) finished in 138 ms
+26/08/07 19:04:54 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+26/08/07 19:04:54 INFO TaskSchedulerImpl: Canceling stage 3
+26/08/07 19:04:54 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+26/08/07 19:04:54 INFO DAGScheduler: Job 2 finished: showString at DirectMethodHandleAccessor.java:103, took 143.3769 ms
+26/08/07 19:04:54 INFO CodeGenerator: Code generated in 33.8682 ms
+26/08/07 19:04:54 INFO DAGScheduler: Asked to cleanup jobs for query execution 1
++---+--------+----------+------+
+|id |name    |department|salary|
++---+--------+----------+------+
+|1  |Tanishka|IT        |60000 |
+|2  |Rahul   |HR        |50000 |
++---+--------+----------+------+
+
+2026-08-07 19:04:54,559 INFO Writing Parquet to: file:///C:/spark-projects/multi-db-executor/output/postgres_hr/employee
+2026-08-07 19:04:54,620 INFO Partitioning by department
+26/08/07 19:04:54 INFO JDBCDatabaseMetadata: closed connection during metadata fetch
+26/08/07 19:04:54 INFO ParquetUtils: Using user defined output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+26/08/07 19:04:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/08/07 19:04:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/08/07 19:04:55 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+26/08/07 19:04:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/08/07 19:04:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/08/07 19:04:55 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+26/08/07 19:04:55 INFO CodeGenerator: Code generated in 30.301 ms
+26/08/07 19:04:55 INFO SparkContext: Starting job: parquet at DirectMethodHandleAccessor.java:103
+26/08/07 19:04:55 INFO DAGScheduler: Got job 3 (parquet at DirectMethodHandleAccessor.java:103) with 1 output partitions
+26/08/07 19:04:55 INFO DAGScheduler: Final stage: ResultStage 4 (parquet at DirectMethodHandleAccessor.java:103)
+26/08/07 19:04:55 INFO DAGScheduler: Parents of final stage: List()
+26/08/07 19:04:55 INFO DAGScheduler: Missing parents: List()
+26/08/07 19:04:55 INFO DAGScheduler: Missing parents found for ResultStage 4: List()
+26/08/07 19:04:55 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[16] at parquet at DirectMethodHandleAccessor.java:103), which has no missing parents
+26/08/07 19:04:55 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 254.8 KiB, free 434.1 MiB)
+26/08/07 19:04:55 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 93.2 KiB, free 434.0 MiB)
+26/08/07 19:04:55 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1760
+26/08/07 19:04:55 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 4 (MapPartitionsRDD[16] at parquet at DirectMethodHandleAccessor.java:103) (first 15 tasks are for partitions Vector(0))
+26/08/07 19:04:55 INFO TaskSchedulerImpl: Adding task set 4.0 with 1 tasks resource profile 0
+26/08/07 19:04:55 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 3) (Tanishka3212,executor driver, partition 0, PROCESS_LOCAL, 9907 bytes) 
+26/08/07 19:04:55 INFO Executor: Running task 0.0 in stage 4.0 (TID 3)
+26/08/07 19:04:55 INFO PostgresDialect: No fetchSize option set for PostgreSQL JDBC read. Defaulting to 1000 to avoid loading all rows into memory. Set the 'fetchsize' option explicitly to override this behavior.
+26/08/07 19:04:55 INFO JDBCRDD: Generated JDBC query to fetch data: SELECT "id","name","department","salary" FROM employee      
+26/08/07 19:04:55 INFO PostgresDialect: No fetchSize option set for PostgreSQL JDBC read. Defaulting to 1000 to avoid loading all rows into memory. Set the 'fetchsize' option explicitly to override this behavior.
+26/08/07 19:04:55 INFO CodeGenerator: Code generated in 25.4576 ms
+26/08/07 19:04:55 INFO CodeGenerator: Code generated in 48.7228 ms
+26/08/07 19:04:55 INFO CodeGenerator: Code generated in 22.4614 ms
+26/08/07 19:04:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/08/07 19:04:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/08/07 19:04:55 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+26/08/07 19:04:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/08/07 19:04:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/08/07 19:04:55 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+26/08/07 19:04:55 INFO CodeGenerator: Code generated in 13.2889 ms
+26/08/07 19:04:55 INFO JDBCRDD: closed connection
+26/08/07 19:04:55 INFO CodeGenerator: Code generated in 9.4889 ms
+26/08/07 19:04:55 INFO CodeGenerator: Code generated in 114.624 ms
+26/08/07 19:04:55 INFO CodecConfig: Compression: SNAPPY
+26/08/07 19:04:55 INFO CodecConfig: Compression: SNAPPY
+26/08/07 19:04:56 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+26/08/07 19:04:56 INFO CodecPool: Got brand-new compressor [.snappy]
+26/08/07 19:04:57 INFO CodecConfig: Compression: SNAPPY
+26/08/07 19:04:57 INFO CodecConfig: Compression: SNAPPY
+26/08/07 19:04:57 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+26/08/07 19:04:58 INFO FileOutputCommitter: Saved output of task 'attempt_202608071904556828848366288403205_0004_m_000000_3' to file:/C:/spark-projects/multi-db-executor/output/postgres_hr/employee
+26/08/07 19:04:58 INFO SparkHadoopMapRedUtil: attempt_202608071904556828848366288403205_0004_m_000000_3: Committed. Elapsed time: 124 ms.
+26/08/07 19:04:58 INFO Executor: Finished task 0.0 in stage 4.0 (TID 3). 3650 bytes result sent to driver
+26/08/07 19:04:58 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 3) in 2818 ms on Tanishka3212 (executor driver) (1/1)
+26/08/07 19:04:58 INFO DAGScheduler: ResultStage 4 (parquet at DirectMethodHandleAccessor.java:103) finished in 2896 ms
+26/08/07 19:04:58 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+26/08/07 19:04:58 INFO TaskSchedulerImpl: Removed TaskSet 4.0 whose tasks have all completed, from pool 
+26/08/07 19:04:58 INFO TaskSchedulerImpl: Canceling stage 4
+26/08/07 19:04:58 INFO TaskSchedulerImpl: Killing all running tasks in stage 4: Stage finished
+26/08/07 19:04:58 INFO DAGScheduler: Job 3 finished: parquet at DirectMethodHandleAccessor.java:103, took 2901.8791 ms
+26/08/07 19:04:58 INFO FileFormatWriter: Start to commit write Job 95ab8245-31ad-4af6-a93b-0b56b7324eea.
+26/08/07 19:04:58 INFO FileFormatWriter: Write Job 95ab8245-31ad-4af6-a93b-0b56b7324eea committed. Elapsed time: 106 ms.
+26/08/07 19:04:58 INFO FileFormatWriter: Finished processing stats for write job 95ab8245-31ad-4af6-a93b-0b56b7324eea.
+26/08/07 19:04:58 INFO DAGScheduler: Asked to cleanup jobs for query execution 2
+2026-08-07 19:04:58,315 INFO Parquet written successfully.
+26/08/07 19:04:58 INFO SparkContext: SparkContext is stopping with exitCode 0 from stop at DirectMethodHandleAccessor.java:103.
+26/08/07 19:04:58 INFO SparkUI: Stopped Spark web UI at http://Tanishka3212:4041
+26/08/07 19:04:58 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/08/07 19:04:58 INFO MemoryStore: MemoryStore cleared
+26/08/07 19:04:58 INFO BlockManager: BlockManager stopped
+26/08/07 19:04:58 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/08/07 19:04:58 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/08/07 19:04:58 WARN SparkEnv: Exception while deleting Spark temp dir: C:\Users\asus\AppData\Local\Temp\spark-98416988-cd57-4167-85c1-ff111472c7b5\userFiles-24532923-afbd-4db5-906e-8bf88c4df10a
+java.io.IOException: Failed to delete: C:\Users\asus\AppData\Local\Temp\spark-98416988-cd57-4167-85c1-ff111472c7b5\userFiles-24532923-afbd-4db5-906e-8bf88c4df10a\postgresql-42.7.7.jar
+	at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:310)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:279)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:293)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:279)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:250)
+	at org.apache.spark.util.SparkFileUtils.deleteRecursively(SparkFileUtils.scala:158)
+	at org.apache.spark.util.SparkFileUtils.deleteRecursively$(SparkFileUtils.scala:157)
+	at org.apache.spark.util.Utils$.deleteRecursively(Utils.scala:1062)
+	at org.apache.spark.SparkEnv.stop(SparkEnv.scala:155)
+	at org.apache.spark.SparkContext.$anonfun$stop$25(SparkContext.scala:2406)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1314)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:2406)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:2308)
+	at org.apache.spark.api.java.JavaSparkContext.stop(JavaSparkContext.scala:552)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/08/07 19:04:58 INFO SparkContext: Successfully stopped SparkContext (Uptime: 21176 ms)
+2026-08-07 19:04:58,564 INFO Spark Session Stopped
+2026-08-07 19:04:58,667 INFO Closing down clientserver connection
+26/08/07 19:04:59 ERROR ShutdownHookManager: Exception while deleting Spark temp dir: C:\Users\asus\AppData\Local\Temp\spark-98416988-cd57-4167-85c1-ff111472c7b5
+java.io.IOException: Failed to delete: C:\Users\asus\AppData\Local\Temp\spark-98416988-cd57-4167-85c1-ff111472c7b5\userFiles-24532923-afbd-4db5-906e-8bf88c4df10a\postgresql-42.7.7.jar
+	at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:310)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:279)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:293)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:279)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:293)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:279)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:250)
+	at org.apache.spark.util.SparkFileUtils.deleteRecursively(SparkFileUtils.scala:158)
+	at org.apache.spark.util.SparkFileUtils.deleteRecursively$(SparkFileUtils.scala:157)
+	at org.apache.spark.util.Utils$.deleteRecursively(Utils.scala:1062)
+	at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$4(ShutdownHookManager.scala:70)
+	at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$4$adapted(ShutdownHookManager.scala:67)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1324)
+	at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$2(ShutdownHookManager.scala:67)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:231)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:205)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1963)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:205)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:205)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:184)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/08/07 19:04:59 ERROR ShutdownHookManager: Exception while deleting Spark temp dir: C:\Users\asus\AppData\Local\Temp\spark-98416988-cd57-4167-85c1-ff111472c7b5\userFiles-24532923-afbd-4db5-906e-8bf88c4df10a
+java.io.IOException: Failed to delete: C:\Users\asus\AppData\Local\Temp\spark-98416988-cd57-4167-85c1-ff111472c7b5\userFiles-24532923-afbd-4db5-906e-8bf88c4df10a\postgresql-42.7.7.jar
+	at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:310)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:279)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:293)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:279)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:250)
+	at org.apache.spark.util.SparkFileUtils.deleteRecursively(SparkFileUtils.scala:158)
+	at org.apache.spark.util.SparkFileUtils.deleteRecursively$(SparkFileUtils.scala:157)
+	at org.apache.spark.util.Utils$.deleteRecursively(Utils.scala:1062)
+	at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$4(ShutdownHookManager.scala:70)
+	at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$4$adapted(ShutdownHookManager.scala:67)
+	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1324)
+	at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$2(ShutdownHookManager.scala:67)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:231)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:205)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1963)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:205)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:205)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:184)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)

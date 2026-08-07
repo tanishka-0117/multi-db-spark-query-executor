@@ -1,0 +1,10 @@
+[
+  {
+    "db": "postgres_hr",
+    "table": "employee"
+  },
+  {
+    "db": "mysql_company",
+    "table": "employee"
+  }
+]
