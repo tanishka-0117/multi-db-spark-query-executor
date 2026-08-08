@@ -1,7 +1,10 @@
-.idea/ 
-__pycache__/ 
-*.pyc 
-output/ 
-*.crc 
-spark-warehouse/ 
-*.iml 
+output/
+logs/
+state/
+spark-warehouse/
+__pycache__/
+*.pyc
+*.log
+.env
+.vscode/
+.idea/

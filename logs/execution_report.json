@@ -1,16 +1,18 @@
 [
-  {
-    "database": "postgres_hr",
-    "table": "employee",
-    "status": "SUCCESS",
-    "duration_seconds": 38.34,
-    "log_file": "logs/postgres_hr_employee.log"
-  },
-  {
-    "database": "mysql_company",
-    "table": "employee",
-    "status": "SUCCESS",
-    "duration_seconds": 39.45,
-    "log_file": "logs/mysql_company_employee.log"
-  }
+    {
+        "database": "mysql_company",
+        "job_type": "query",
+        "name": "SELECT * FROM employee",
+        "status": "SUCCESS",
+        "duration_seconds": 36.52,
+        "log_file": "C:\\spark-projects\\multi-db-executor\\logs\\mysql_company_query.log"
+    },
+    {
+        "database": "postgres_hr",
+        "job_type": "table",
+        "name": "employee",
+        "status": "SUCCESS",
+        "duration_seconds": 36.53,
+        "log_file": "C:\\spark-projects\\multi-db-executor\\logs\\postgres_hr_employee.log"
+    }
 ]

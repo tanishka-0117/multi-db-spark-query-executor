@@ -1,10 +1,10 @@
 [
   {
-    "db": "postgres_hr",
-    "table": "employee"
+    "db": "mysql_company",
+    "query": "SELECT * FROM employee"
   },
   {
-    "db": "mysql_company",
+    "db": "postgres_hr",
     "table": "employee"
   }
 ]

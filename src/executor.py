@@ -1,25 +1,48 @@
-import json
 import sys
+import time
 import logging
+from pathlib import Path
+
 from pyspark.sql import SparkSession
+
+from config_loader import get_database_config
 from db_reader import JDBCReader
 
-# ---------------- Logging ----------------
+
+# =========================================================
+# Logging Configuration
+# =========================================================
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s"
 )
+
 logger = logging.getLogger(__name__)
 
-# ---------------- Validate Arguments ----------------
-if len(sys.argv) != 3:
-    print("Usage: spark-submit src/executor.py <db_name> <table_name>")
+
+# =========================================================
+# Validate Command Line Arguments
+# =========================================================
+if len(sys.argv) != 4:
+    print("Usage:")
+    print("spark-submit executor.py <db_name> table <table_name>")
+    print("spark-submit executor.py <db_name> query <sql_query>")
     sys.exit(1)
 
 db_name = sys.argv[1]
-table_name = sys.argv[2]
+job_type = sys.argv[2]
+value = sys.argv[3]
 
-# ---------------- Spark Session ----------------
+
+# =========================================================
+# Project Root
+# =========================================================
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+# =========================================================
+# Spark Session
+# =========================================================
 spark = (
     SparkSession.builder
     .appName(f"MultiDBExecutor-{db_name}")
@@ -42,64 +65,105 @@ spark = (
     )
     .config(
         "spark.sql.warehouse.dir",
-        "file:///C:/spark-projects/multi-db-executor/spark-warehouse"
+        str(PROJECT_ROOT / "spark-warehouse")
     )
     .getOrCreate()
 )
 
-try:
-    # ---------------- Load Database Config ----------------
-    with open("config/databases.json", "r") as f:
-        databases = json.load(f)
+start_time = time.time()
 
-    if db_name not in databases:
-        raise ValueError(
-            f"Database '{db_name}' not found in config/databases.json"
+try:
+
+    # =====================================================
+    # Load Database Configuration
+    # =====================================================
+    db_config = get_database_config(db_name)
+
+    reader = JDBCReader(spark)
+
+    # =====================================================
+    # TABLE EXECUTION
+    # =====================================================
+    if job_type == "table":
+
+        logger.info(f"Reading table: {value}")
+
+        df = reader.read_table(
+            db_config,
+            value
         )
 
-    db_config = databases[db_name]
+        output_name = value
 
-    logger.info(f"Database Config: {db_config}")
-    logger.info(f"Reading table '{table_name}' from '{db_name}'")
+    # =====================================================
+    # QUERY EXECUTION
+    # =====================================================
+    elif job_type == "query":
 
-    # ---------------- Read Table ----------------
-    reader = JDBCReader(spark)
-    df = reader.read_table(db_config, table_name)
+        logger.info(f"Executing query: {value}")
 
-    logger.info(f"Spark Partitions: {df.rdd.getNumPartitions()}")
+        df = reader.read_query(
+            db_config,
+            value
+        )
 
+        output_name = "query_result"
+
+    else:
+        raise ValueError("job_type must be either table or query")
+
+    # =====================================================
+    # DataFrame Information
+    # =====================================================
+    partitions = df.rdd.getNumPartitions()
     row_count = df.count()
-    logger.info(f"Row Count: {row_count}")
+
+    logger.info(f"Partitions: {partitions}")
+    logger.info(f"Rows fetched: {row_count}")
 
     df.show(truncate=False)
 
-    # ---------------- Output Path ----------------
+    # =====================================================
+    # Output Path
+    # =====================================================
     output_path = (
-        f"file:///C:/spark-projects/multi-db-executor/output/"
-        f"{db_name}/{table_name}"
+        PROJECT_ROOT / "output" / db_name / output_name
     )
 
-    logger.info(f"Writing Parquet to: {output_path}")
-
+    # =====================================================
+    # Write Parquet
+    # =====================================================
     writer = (
         df.write
         .mode("overwrite")
         .option("compression", "snappy")
     )
 
-    # Partition only if the column exists
+    # Partition if department column exists
     if "department" in df.columns:
         writer = writer.partitionBy("department")
-        logger.info("Partitioning by department")
 
-    writer.parquet(output_path)
+    writer.parquet(str(output_path))
 
-    logger.info("Parquet written successfully.")
+    logger.info(f"Output written to: {output_path}")
+
+    # =====================================================
+    # Execution Metrics
+    # =====================================================
+    duration = round(time.time() - start_time, 2)
+
+    logger.info("Execution completed successfully")
+    logger.info(f"Database      : {db_name}")
+    logger.info(f"Job Type      : {job_type}")
+    logger.info(f"Output Path   : {output_path}")
+    logger.info(f"Duration (s)  : {duration}")
 
 except Exception as e:
-    logger.exception(f"Job Failed: {e}")
+
+    logger.exception("Execution failed")
     sys.exit(1)
 
 finally:
+
     spark.stop()
     logger.info("Spark Session Stopped")
