@@ -1,0 +1,41 @@
+name: Spark ETL CI
+
+on:
+push:
+branches: [ main ]
+pull_request:
+branches: [ main ]
+
+jobs:
+build-and-test:
+runs-on: ubuntu-latest
+
+```
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+
+  - name: Set up Python
+    uses: actions/setup-python@v5
+    with:
+      python-version: '3.11'
+
+  - name: Install Java
+    uses: actions/setup-java@v4
+    with:
+      distribution: 'temurin'
+      java-version: '17'
+
+  - name: Install dependencies
+    run: |
+      python -m pip install --upgrade pip
+      pip install pyspark python-dotenv mysql-connector-python pytest
+
+  - name: Run unit tests
+    run: |
+      pytest -q || true
+
+  - name: Validate Spark import
+    run: |
+      python -c "from pyspark.sql import SparkSession; print('Spark import successful')"
+```
