@@ -1,3 +1,0 @@
-Usage:
-spark-submit executor.py <db_name> table <table_name>
-spark-submit executor.py <db_name> query <sql_query>
